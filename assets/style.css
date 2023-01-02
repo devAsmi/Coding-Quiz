@@ -3,6 +3,13 @@ main {
   flex-direction: column;
 }
 
+main button {
+  color: white;
+  background-color: rgb(145, 36, 145);
+  border-radius: 10px;
+  padding: 10px;
+}
+
 .menu {
   font-size: 16px;
   display: flex;
@@ -17,11 +24,34 @@ main {
   margin-top: 72px;
   align-self: center;
 }
-main button {
-  color: white;
-  background-color: rgb(145, 36, 145);
-  max-width: 400px;
-  min-width: 100px;
-  border-radius: 10px;
-  padding: 10px;
+
+.questions {
+  width: 60%;
+  display: flex;
+  text-align: column;
+  flex-direction: column;
+  align-items: flex-start;
+  display: none;
+  align-self: center;
+}
+
+.question-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.option-btn {
+  width: 100%;
+  text-align: left;
+}
+
+.result {
+  font-size: 30px;
+  display: flex;
+  border-top: 1px solid;
+  color: #7e7e72;
+  width: 100%;
 }
