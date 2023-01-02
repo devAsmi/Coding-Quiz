@@ -1,0 +1,27 @@
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu {
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  flex-direction: column;
+  margin-top: 72px;
+  align-self: center;
+}
+main button {
+  color: white;
+  background-color: rgb(145, 36, 145);
+  max-width: 400px;
+  min-width: 100px;
+  border-radius: 10px;
+  padding: 10px;
+}
