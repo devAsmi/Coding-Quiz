@@ -50,8 +50,22 @@ main button {
 
 .result {
   font-size: 30px;
-  display: flex;
+  display: none;
   border-top: 1px solid;
   color: #7e7e72;
-  width: 100%;
+  width: 60%;
+  align-self: center;
+}
+
+.over {
+  display: none;
+  flex-direction: column;
+  margin-bottom: 50px;
+  width: 60%;
+  align-self: center;
+  align-items: flex-start;
+}
+
+.scores {
+  display: none;
 }
