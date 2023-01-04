@@ -14,6 +14,7 @@ var initialInput = document.getElementById("initials");
 var scoresEL = document.getElementById("scores");
 var menuEL = document.getElementsByClassName("menu")[0];
 var backBtn = document.getElementById("back");
+var clearScoreButton = document.getElementById("clearscore");
 
 // variables for the game
 var quizTimer;
@@ -65,7 +66,7 @@ function showQuestion() {
   } else {
     questionToAsk = listOfQuestions[currentQuestionIndex];
     resultContainer.style.display = "flex";
-   questionContainer.style.display = "flex"; //display the hidden portion
+    questionContainer.style.display = "flex"; //display the hidden portion
     const questionHeader = document.getElementById("question-header");
     questionHeader.innerHTML = questionToAsk.question; //display the question
 
@@ -82,26 +83,16 @@ function showQuestion() {
   }
 }
 
-function addListenerToAnswerButtons() {
-  // when any of the option-buttons is clicked,
-  // we check if the answer is right or wrong
-  for (var k = 0; k < optionButtons.length; k++) {
-    optionButtons[k].addEventListener("click", function (event) {
-      var chosenAnswer = event.target.value;
-      if (questionToAsk.answer === chosenAnswer) {
-        resultContainer.textContent = "Correct";
-      } else {
-        resultContainer.textContent = "Incorrect";
-        totalGameTime = totalGameTime - 10;
-      }
-      currentQuestionIndex++;
-      showQuestion();
-    });
-  }
-}
-
 function updateTimer() {
   timerDisplay.textContent = totalGameTime;
+}
+
+function getStoredScores() {
+  // for loop for length of local storage and get all the key and values
+}
+
+function clearHighScores() {
+  localStorage.clear();
 }
 
 startButton.addEventListener("click", function () {
@@ -109,7 +100,6 @@ startButton.addEventListener("click", function () {
   contentLi.style.display = "none";
   // update the timer text
   updateTimer();
-  addListenerToAnswerButtons();
   showQuestion();
 
   // start timer when the button is clicked
@@ -129,6 +119,11 @@ startButton.addEventListener("click", function () {
 });
 
 submitButton.addEventListener("click", function () {
+  if (initialInput.value === "") {
+    window.alert("enter a value for initials");
+    return;
+  }
+
   // save score to local storage
   localStorage.setItem(initialInput.value, totalGameTime);
 
@@ -137,14 +132,33 @@ submitButton.addEventListener("click", function () {
   gameOver.style.display = "none";
   resultContainer.style.display = "none";
   menuEL.style.display = "none";
+
+  console.log(localStorage.length);
 });
 
 backBtn.addEventListener("click", function () {
   menuEL.style.display = "flex";
   contentLi.style.display = "flex";
   scoresEL.style.display = "none";
+  totalGameTime = 75;
+  currentQuestionIndex = 0;
+  isFinish = false;
+  timerDisplay.textContent = 0;
 });
-function resetGame(){
 
+clearScoreButton.addEventListener("click", clearHighScores);
 
+// add event listener for each options once the page loads
+for (var k = 0; k < optionButtons.length; k++) {
+  optionButtons[k].addEventListener("click", function (event) {
+    var chosenAnswer = event.target.value;
+    if (questionToAsk.answer === chosenAnswer) {
+      resultContainer.textContent = "Correct";
+    } else {
+      resultContainer.textContent = "Incorrect";
+      totalGameTime = totalGameTime - 10;
+    }
+    currentQuestionIndex++;
+    showQuestion();
+  });
 }

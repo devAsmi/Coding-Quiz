@@ -36,14 +36,15 @@
       <div class="over">
         <h3 id="finish">All Done!</h3>
         <p>Your Final Score is <span id="score"></span></p>
-        <label for="initials">Enter Initials:</label>
-        <input name="initials" id="initials" />
+        <form>
+          <label for="initials">Enter Initials:</label>
+          <input name="initials" id="initials" type="text" required />
+        </form>
         <button id="submit-score">submit</button>
       </div>
       <div class="result" id="result"></div>
       <div id="scores" class="scores">
         <h1>High Scores</h1>
-
         <div>
           <button id="back">Go Back</button>
           <button id="clearscore">Clear high scores</button>
