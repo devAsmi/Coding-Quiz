@@ -13,6 +13,7 @@ var submitButton = document.getElementById("submit-score");
 var initialInput = document.getElementById("initials");
 var scoresEL = document.getElementById("scores");
 var menuEL = document.getElementsByClassName("menu")[0];
+var backBtn = document.getElementById("back");
 
 // variables for the game
 var quizTimer;
@@ -64,7 +65,7 @@ function showQuestion() {
   } else {
     questionToAsk = listOfQuestions[currentQuestionIndex];
     resultContainer.style.display = "flex";
-    questionContainer.style.display = "flex"; //display the hidden portion
+   questionContainer.style.display = "flex"; //display the hidden portion
     const questionHeader = document.getElementById("question-header");
     questionHeader.innerHTML = questionToAsk.question; //display the question
 
@@ -137,3 +138,13 @@ submitButton.addEventListener("click", function () {
   resultContainer.style.display = "none";
   menuEL.style.display = "none";
 });
+
+backBtn.addEventListener("click", function () {
+  menuEL.style.display = "flex";
+  contentLi.style.display = "flex";
+  scoresEL.style.display = "none";
+});
+function resetGame(){
+
+
+}
