@@ -89,11 +89,23 @@ function updateTimer() {
 }
 
 function getStoredScores() {
+  // reset the savedScores before showing the scores, clearing out old ones
+  savedScores.innerHTML = "";
   // for loop for length of local storage and get all the key and values
+  for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    var value = localStorage.getItem(key);
+    var liEl = document.createElement("li");
+    // add a class to li element that can be styled with css
+    liEl.classList.add("savedScores");
+    liEl.textContent = key + " " + value;
+    savedScores.appendChild(liEl);
+  }
 }
 
 function clearHighScores() {
   localStorage.clear();
+  savedScores.innerHTML = "";
 }
 
 startButton.addEventListener("click", function () {
@@ -133,17 +145,7 @@ submitButton.addEventListener("click", function () {
   gameOver.style.display = "none";
   resultContainer.style.display = "none";
   menuEL.style.display = "none";
-
-  // get the saved scores from localStorage
-  for (var i = 0; i < localStorage.length; i++) {
-    var key = localStorage.key(i);
-    var value = localStorage.getItem(key);
-    var liEl = document.createElement("li");
-    // add a class to li element that can be styled with css
-    liEl.classList.add("savedScores");
-    liEl.textContent = key + " " + value;
-    savedScores.appendChild(liEl);
-  }
+  getStoredScores();
 });
 
 backBtn.addEventListener("click", function () {
