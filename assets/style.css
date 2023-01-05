@@ -74,3 +74,17 @@ main button {
   width: 60%;
   align-self: center;
 }
+
+#saved-scores {
+  margin-bottom: 16px;
+}
+
+.savedScores {
+  list-style: none;
+  background: red;
+  color: white;
+  padding: 8px 16px;
+  margin-bottom: 8px;
+  width: 30%;
+  border-radius: 10px;
+}

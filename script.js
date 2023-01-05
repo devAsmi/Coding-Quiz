@@ -15,6 +15,7 @@ var scoresEL = document.getElementById("scores");
 var menuEL = document.getElementsByClassName("menu")[0];
 var backBtn = document.getElementById("back");
 var clearScoreButton = document.getElementById("clearscore");
+var savedScores = document.getElementById("saved-scores");
 
 // variables for the game
 var quizTimer;
@@ -133,7 +134,16 @@ submitButton.addEventListener("click", function () {
   resultContainer.style.display = "none";
   menuEL.style.display = "none";
 
-  console.log(localStorage.length);
+  // get the saved scores from localStorage
+  for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    var value = localStorage.getItem(key);
+    var liEl = document.createElement("li");
+    // add a class to li element that can be styled with css
+    liEl.classList.add("savedScores");
+    liEl.textContent = key + " " + value;
+    savedScores.appendChild(liEl);
+  }
 });
 
 backBtn.addEventListener("click", function () {
