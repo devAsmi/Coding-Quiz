@@ -16,6 +16,7 @@ var menuEL = document.getElementsByClassName("menu")[0];
 var backBtn = document.getElementById("back");
 var clearScoreButton = document.getElementById("clearscore");
 var savedScores = document.getElementById("saved-scores");
+var highscores = document.getElementById("high-score");
 
 // variables for the game
 var quizTimer;
@@ -179,3 +180,12 @@ for (var k = 0; k < optionButtons.length; k++) {
     showQuestion();
   });
 }
+
+highscores.addEventListener("click", function () {
+  contentLi.style.display = "none";
+  resultContainer.style.display = "none";
+  questionContainer.style.display = "none";
+  gameOver.style.display = "none";
+  scoresEL.style.display = "flex";
+  getStoredScores();
+});

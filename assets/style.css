@@ -8,12 +8,22 @@ main button {
   background-color: rgb(145, 36, 145);
   border-radius: 10px;
   padding: 10px;
+  border: 2px solid rgb(145, 36, 145);
+}
+
+main button:hover {
+  background-color: rgb(185, 97, 185);
 }
 
 .menu {
   font-size: 16px;
   display: flex;
   justify-content: space-between;
+}
+
+#high-score {
+  color: purple;
+  cursor: pointer;
 }
 
 .content {
