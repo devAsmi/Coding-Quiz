@@ -111,6 +111,8 @@ function clearHighScores() {
 startButton.addEventListener("click", function () {
   // TODO: Display quiz question when clicked
   contentLi.style.display = "none";
+  resultContainer.textContent = "";
+
   // update the timer text
   updateTimer();
   showQuestion();
@@ -139,6 +141,9 @@ submitButton.addEventListener("click", function () {
 
   // save score to local storage
   localStorage.setItem(initialInput.value, totalGameTime);
+
+  // reset the value to empty
+  initialInput.value = " ";
 
   // display the scores section
   scoresEL.style.display = "flex";
