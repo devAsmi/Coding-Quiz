@@ -186,6 +186,8 @@ highscores.addEventListener("click", function () {
   resultContainer.style.display = "none";
   questionContainer.style.display = "none";
   gameOver.style.display = "none";
+  menuEL.style.display = "none";
   scoresEL.style.display = "flex";
+  clearInterval(quizTimer);
   getStoredScores();
 });
